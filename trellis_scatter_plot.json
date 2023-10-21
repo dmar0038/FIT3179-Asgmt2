@@ -4,7 +4,7 @@
       "text": "Trellis Scatter Plot: Life Expectancy VS Immunization Coverage of Diseases (% Among One (1) Year Olds)",
       "anchor": "middle"
     },
-    "data": {"url": "Life Expectancy Data.csv"},
+    "data": {"url": "https://raw.githubusercontent.com/dmar0038/FIT3179-Asgmt2/main/Life%20Expectancy%20Data.csv"},
     "transform": [
         {"filter": {"field": "Year", "equal": 2015}}
     ],
