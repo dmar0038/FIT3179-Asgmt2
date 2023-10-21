@@ -9,7 +9,7 @@
     "layer": [
         {
             "data": {
-                "url": "ne_110m.json",
+                "url": "https://raw.githubusercontent.com/dmar0038/FIT3179-Asgmt2/main/ne_110m.json",
                 "format": {
                     "type": "topojson",
                     "feature": "ne_110m_graticules_30"
@@ -23,7 +23,7 @@
         },
         {
             "data": {
-                "url": "ne_110m.json",
+                "url": "https://raw.githubusercontent.com/dmar0038/FIT3179-Asgmt2/main/ne_110m.json",
                 "format": {
                     "type": "topojson",
                     "feature": "ne_110m_admin_0_countries"
