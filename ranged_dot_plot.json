@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Ranged Dot Plot: Change in Life Expectancy [2000 - 2015]",
-  "data": {"url": "Life Expectancy Data.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/dmar0038/FIT3179-Asgmt2/main/Life%20Expectancy%20Data.csv"},
   "height": 300,
   "transform": [
     {
