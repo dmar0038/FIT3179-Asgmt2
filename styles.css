@@ -1,0 +1,185 @@
+header {
+  /* background-color: #35424a; Header background color */
+  background-color: #026670; /* Header background color */
+  color: #ffffff; /* Text color */
+  padding: 40px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0;
+  font-size: 56px;
+}
+
+footer {
+  /* background-color: #35424a; Header background color */
+  background-color: #026670; /* Header background color */
+  color: #ffffff; /* Text color */
+  padding: 20px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.intro-text {
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin: 30px;
+}
+
+.intro-bubble {
+  /* background: linear-gradient(to bottom, #61bce7, #2b8acd); */
+  background: linear-gradient(to bottom, #5cd4a2, #19907e);
+  border-radius: 15px;
+  padding: 22px;
+  margin: 3% auto; /* Center both horizontally and vertically */
+  text-align: center;
+  width: 70%;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4); /* Stronger box shadow */
+  color: #ffffff; /* Darker text color for contrast */
+}
+
+.definition {
+  font-weight: bold;
+}
+
+.source {
+  font-style: italic;
+}
+
+/* Bubble Container for Charts */
+
+.bubble-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3% auto;
+}
+
+.chart-bubble {
+  background: #E27D60;
+  border-radius: 15px;
+  padding: 10px;
+  /* width: 65%; */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  margin: 30px;
+}
+
+.text-bubble {
+  background: #B23850;
+  border-radius: 15px;
+  padding: 30px;
+  /* width: 25%; */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  margin: 30px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* For Ranged Dot Plot - Horizontal Scrollable */
+.bubble-container-scroll {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 3% auto;
+  max-width: 100%; 
+}
+
+.chart-bubble-scroll {
+  background: #E27D60;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  margin: 30px;
+  /* width: calc(30% - 60px); Adjust the width as needed */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.text-bubble-scroll {
+  background: #B23850;
+  border-radius: 15px;
+  padding: 30px;
+  /* width: 25%; */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  margin: 30px;
+  font-size: 14px;
+  text-align: center;
+  width: 60%;
+  margin: 1% auto;
+}
+
+/* For Trellis Plot - Central*/
+
+.chart-bubble-central {
+  background: #E27D60;
+  border-radius: 15px;
+  padding: 10px;
+  /* width: 65%; */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  margin: 30px auto;
+}
+
+/* Borders for Charts */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+#choropleth_map {
+    border: 1px solid black;
+    margin: 15px;
+  }
+
+#bubble_chart {
+    border: 1px solid black;
+    margin: 15px;
+  }
+
+#ranged_dot_plot {
+    border: 1px solid black;
+    margin: 15px;
+  }
+
+#trellis_scatter_plot {
+    border: 1px solid black;
+    margin: 15px;
+  }
+
+#bar_chart {
+    border: 1px solid black;
+    margin: 15px;
+  }
+
+#bar_chart2 {
+    border: 1px solid black;
+    margin: 15px;
+  }
+
+#bar_chart3 {
+    border: 1px solid black;
+    margin: 15px;
+  }
+
+  #bmi_map {
+    border: 1px solid black;
+    margin: 15px;
+  }

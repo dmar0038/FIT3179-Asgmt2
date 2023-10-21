@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Trellis Scatter Plot: Life Expectancy VS Measles Cases, HIV Deaths, Adult Mortality (Per 1000 Population)",
+      "anchor": "middle"
+    },
+    "data": {"url": "Life Expectancy Data.csv"},
+    "transform": [
+        {"filter": {"field": "Year", "equal": 2015}}
+    ],
+    "repeat": {
+        "row": ["Life expectancy "],
+        "column": ["Measles ", " HIV/AIDS", "Adult Mortality"]
+    },
+    "spec": {
+        "width": 350,
+        "height": 300,
+        "mark": "point",
+        "encoding": {
+          "x": {"field": {"repeat": "column"}, "type": "quantitative"},
+          "y": {"field": {"repeat": "row"}, "type": "quantitative", "title": "Life Expectancy", "scale": {"domain": [40, 100]}},
+          "color": {
+            "field": "Status",
+            "type": "nominal",
+            "scale": {"domain": ["Developed", "Developing"], "range": ["blue", "green"]},
+            "title": "Country Status"
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Country"},
+            {"field": "Status", "type": "nominal", "title": "Status"},
+            {"field": {"repeat": "row"}, "type": "quantitative", "title": "Life Expectancy (Years)"},
+            {"field": {"repeat": "column"}, "type": "quantitative"}
+          ]
+        }
+    }
+}

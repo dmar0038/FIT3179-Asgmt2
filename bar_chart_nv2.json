@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Bar Chart: Government Expenditure on Health (%) in Developed Nations",
+    "width": 800,
+    "height": 400,
+    "data": {
+      "url": "Life Expectancy Data.csv" 
+    },
+    "params": [
+        {
+            "name": "selectedYear",
+            "value": "2014",
+            "bind": {
+                "input": "select",
+                "options": ["2014", "2013", "2012", "2011", "2010", 
+                "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000"],
+                "name": "Selected Year: "
+            }
+        }
+    ],
+    "transform": [
+        {"filter": {"field": "Status", "equal": "Developed"}},
+        {"filter": "datum['Year'] === selectedYear"}
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Country", 
+        "type": "nominal", 
+        "axis": {
+            "labelAngle": 45,
+            "labelExpr": "slice(datum.value, 0, 16) + (length(datum.value) > 16 ? '...' : '')"
+            }
+        },
+      "y": {
+        "field": "Total expenditure", 
+        "type": "quantitative",
+        "title": "Total expenditure"
+        },
+      "color": {"field": "Country", "type": "nominal", "scale": {"scheme": "category20"}},
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Total expenditure", "type": "quantitative", "title": "Total expenditure"}
+      ]
+    }
+}

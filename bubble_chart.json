@@ -1,0 +1,43 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Bubble Chart: Life Expectancy VS GDP",
+    "width": 800,
+    "height": 400,
+    "description": "A Bubblechart for analysis",
+    "data": {"url": "Life Expectancy Data.csv"},
+    "params": [
+        {
+            "name": "selectedYear",
+            "value": "2015",
+            "bind": {
+                "input": "select",
+                "options": ["2015", "2014", "2013", "2012", "2011", "2010", 
+                "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000"],
+                "name": "Selected Year: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum['Year'] === selectedYear"
+        }
+    ],
+    "mark": "circle",
+    "encoding": {
+      "y": {"field": "Life expectancy ", "type": "quantitative", "title": "Life Expectancy (Years)",
+        "scale": {"domain": [30, 100]}
+      },
+      "x": {"field": "GDP", "type": "quantitative", "title": "Gross Domestic Product (GDP)",
+        "scale": {"type": "log"}
+      },
+      "size": {"field": "Population", "type": "quantitative", "scale": {"type": "log"}, "title": "Population"},
+      "color": {"field": "Status", "type": "nominal", "title": "Country Status"},
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Life expectancy ", "type": "quantitative", "title": "Life Expectancy"},
+        {"field": "GDP", "type": "quantitative", "title": "GDP"},
+        {"field": "Population", "type": "quantitative", "title": "Population"},
+        {"field": "Year", "type": "ordinal", "title": "Year"}
+      ]
+    }
+}

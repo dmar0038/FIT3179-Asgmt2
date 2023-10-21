@@ -1,0 +1,45 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Scatter Plot: World Countries Average Body Mass Index (BMI)",
+    "width": 800,
+    "height": 400,
+    "data": {"url": "Life Expectancy Data.csv"},
+    "params": [
+        {
+            "name": "selectedYear",
+            "value": "2015",
+            "bind": {
+                "input": "select",
+                "options": ["2015", "2014", "2013", "2012", "2011", "2010", 
+                "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000"],
+                "name": "Selected Year: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum['Year'] === selectedYear"
+        }
+    ],
+    "mark": "point",
+    "encoding": {
+      "x": {"field": "Country", "type": "nominal", "title": "Country", 
+      "axis": {
+        "labels": false}},
+      "y": {"field": " BMI ", "type": "quantitative", "title": "Average BMI"},
+      "color": {
+        "field": " BMI ",
+        "type": "quantitative",
+        "title": "Average BMI",
+        "scale": {
+          "range": ["#1f77b4", "#2ca02c", "#ff7f0e", "#d62728", "#9467bd", "#8c564b"], 
+          "domain": [0, 18.5, 25, 30, 35, 80],
+          "type": "ordinal" 
+        }
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": " BMI ", "type": "quantitative", "title": "Average BMI"}
+      ]
+    }
+}

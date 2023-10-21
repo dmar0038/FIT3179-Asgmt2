@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+  <head>
+    <title>World Life Expectancies</title>
+    <meta charset="utf-8" />
+
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Cabin">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style media="screen">
+      /* Add space between Vega-Embed links  */
+      .vega-actions a {
+        margin: 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>World Life Expectancy and Health Factors</h1>
+    </header>
+
+    <div class="intro-bubble">
+      <p class="intro-text">
+        Explore global life expectancies and health factors from around the world. 
+        <br><br>
+        <span class="definition">Life Expectancy</span> refers to the average number of years a person can expect to live. 
+        It is a crucial indicator of overall health and well-being in a particular country or region. 
+        By analyzing life expectancy worldwide, we can gain valuable insights into the state of global public health.
+        <br><br>
+        This webpage provides interactive visualizations, charts, and maps that highlight key health indicators. 
+        Dive into the data to gain insights into the health and well-being of different countries throughout the 21st Century.
+        <br><br>
+        The data used for these visualizations is authentic and sourced from the <span class="source">World Health Organization (WHO)</span>. 
+        The information is accurate for the years 2000-2015 and is available for public use.
+      </p>
+    </div>
+
+    <!-- Choropleth Map Chart -->
+    <div class="bubble-container">
+      <div class="chart-bubble">
+        <div id="choropleth_map"></div>
+      </div>
+
+      <div class="text-bubble">
+        <p class="text-content">
+          The Choropleth Map shown on the left, visualizes the Life Expectancies of the world countries, using a diverging scale. <br><br>
+
+          The darker shades of Blue represents countries with High Life Expectancies.
+          While the lighter shades of Blue/Green represents countries with Low Life Expectancies.
+          The middle range is represented by a shade of Turquoise / Teal <br><br>
+
+          The general results show that 'western countries' such as Australia, USA, UK, as well as parts of South America have Life Expectancies on the upper end of the scale.
+          While most Central and South-East asia have life expectancies in the middle-range.
+          And most parts of Central and South Africa have life expectancies at the lower end of the scale.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bubble Chart -->
+    <div class="bubble-container">
+      <div class="text-bubble">
+        <p class="text-content">
+          The Bubble Chart on the right, visualizes the Life Expectancies against the Gross Domestic Product of world countries.
+          The countries are split into two (2) groups visually: Developing and Developed nations based on colour.
+          Users can also select a year from 2000 - 2015 in which the chart displayed will represent for that year <br><br>
+
+          In general, we can gather that Developed Nations tend to be placed around the top right area, which demonstrates higher Life Expectancies along with a higher GDP.
+          While Developing Nations are all spread out in different areas. This may suggest that Developed Nations could have a positive correlation with having a high life expectancy and a high GDP
+        </p>
+      </div>
+
+      <div class="chart-bubble">
+        <div id="bubble_chart"></div>
+      </div>
+    </div>
+
+    <!-- Ranged Dot plot w Horizontal Scroll-->
+    <div class="bubble-container-scroll">
+      <div class="chart-bubble-scroll">
+          <div id="ranged_dot_plot"></div>
+      </div>
+
+      <div class="text-bubble-scroll">
+        <p class="text-content">
+          The Ranged Dot Plot above visualizes the change in the Life Expectancy of World Countries from 2000 - 2015. 
+          The light maroon and dark maroon points represent data in the Years 2000 and 2015 respectively. 
+          This chart effectively allows users to identify the magnitude in change of the Life Expectancy within 15 Years <br><br>
+
+          Key Observations: <br>
+          Some countries that show the highest increase in Life Expectancy (> +15) are: Zimbabwe, Eritrea, Zambia, Botswana, Rwanda, Uganda, Malawi. <br>
+          Countries that showed a decrease (-) in Life Expectancy after 15 Years include: Estonia, Grenada, Iraq, Libya, Paraguay, Romania, Saint Vincent and the Grenadines, Syrian Arab Republic, Yemen 
+        </p>
+      </div>
+    </div>
+
+    <!-- Trellis Scatter Plot-->
+    <div class="bubble-container-scroll">
+      <div class="chart-bubble-central">
+        <div id="trellis_scatter_plot"></div>
+      </div>
+
+      <div class="text-bubble-scroll">
+        <p class="text-content">
+          The Trellis Scatter Plot above visualizes the Life Expectancy of World Countries against Immunization Coverage of Major Diseases (Hepatitis B, Polio, Diphtheria).
+          The chart shows the Immunization percentage (%) coverage among One (1) Year Olds. It gives users a clear visual comparison of the data between these diseases. <br><br>
+
+          The general results show that developed nations tend to be placed in the right upper corner of the chart, indicating high immunization coverage and high life expectancies.
+          All three charts show the same pattern / structure and it can be argued that there is a strong correlation between high immunization coverage and high life expectancies.
+        </p>
+      </div>
+    </div>
+
+    <!-- Trellis Scatter Plot 2-->
+    <div class="bubble-container-scroll">
+      <div class="chart-bubble-central">
+        <div id="trellis_scatter_plot2"></div>
+      </div>
+
+      <div class="text-bubble-scroll">
+        <p class="text-content">
+          The Trellis Scatter Plot above visualizes the Life Expectancy of World Countries against Measles Cases, HIV Deaths and Adult Mortality.
+          The chart scales based on Per 1000 Population. <br><br>
+
+          The results show that there are only 2 countries with extremely high reported Measles cases (>40,000): India and China.
+          There are also 5 countires with high reported Measles cases (>10,000): Mongolia, Kyrgzstan, Ethiopia, Indonesia, Nigeria.
+          High HIV/AIDS deaths (>6) do not seem to be very prominent in most countries except: Lesotho, Swaziland, Zimbabwe.
+          The results also demonstrate that there is a high negative correlation between high life expectancy and high adult mortality.
+          Most developed countries also have much lower Adult Mortality compared to Developing Nations.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bar Chart - NV-->
+    <div class="bubble-container">
+      <div class="chart-bubble">
+        <div id="bar_chart_nv"></div>
+      </div>
+
+      <div class="text-bubble">
+        <p class="text-content">
+          The Bar Chart on the left shows the Average Schooling Years of Developed Nations. 
+          The results show that Developed Nations have quite similar Average Schooling years, which is an important factor in Life Expectancy. <br><br>
+          The country with the highest average schooling years is Australia (20.4) and the country with the lowest average schooling years is Luxembourg (13.9) in 2015. <br><br>
+        </p>
+      </div>
+    </div>
+
+    <!-- Bar Chart - NV2-->
+    <div class="bubble-container">
+      <div class="text-bubble">
+        <p class="text-content">
+          The Bar Chart on the right shows the Government Expenditure on Health as a percentage of the Total Government Expenditure in Developed Nations.
+          The results show more variety in Governemnt Expenditure on Health for Developed Nations. <br><br>
+
+          The country with the highest Government Expenditure on Health is United States of America (17.14%)
+          and the country with the lowest Government Expenditure on Health is Japan (1.23%) in 2014. 
+          This could suggest things such as the priority of a Country's government on Health, or rather the severity / need of Expenditure on Health of a Country
+        </p>
+      </div>
+
+      <div class="chart-bubble">
+        <div id="bar_chart_nv2"></div>
+      </div>
+    </div>
+
+    <!-- BMI Map-->
+    <div class="bubble-container">
+      <div class="chart-bubble">
+        <div id="bmi_map"></div>
+      </div>
+
+      <div class="text-bubble">
+        <p class="text-content">
+          The Scatterplot on the left visualizes the Average Body Mass Index of World Countries. 
+          The Chart separates the colors of the data point values into appropriate BMI ranges to represent the BMI indicators. <br><br>
+
+          BMI Ranges:<br>
+          18.5 and Under - Underweight<br>
+          18.5 - 24.9 - Normal<br>
+          25 - 29.9 - Overweight<br>
+          30 - 34.9 - Obese<br>
+          35 and Above - Extremely Obese<br><br>
+
+          The results show a varied response in the BMIs of different countries.
+          The top 3 countries with the highest averge BMIs are: Kiribati, Tonga, Samoa.
+          The top 3 countries with the lowest average BMIs are: Madagascar, Mauritania, Sao Tome and Principe
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <h3>Visualization Created By: Danesh Mariapan</h3>
+      <h3>FIT3179 Data Visualization 2</h3>
+    </footer>
+
+    <script>
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec = "choropleth_map.json";
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#choropleth_map', vlSpec).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec2 = "bubble_chart.json";
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#bubble_chart', vlSpec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec3 = "ranged_dot_plot.json";
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#ranged_dot_plot', vlSpec3).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec4 = "trellis_scatter_plot.json";
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#trellis_scatter_plot', vlSpec4).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec8 = "bmi_map.json";
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#bmi_map', vlSpec8).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec9 = "trellis_scatter_plot2.json";
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#trellis_scatter_plot2', vlSpec9).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec11 = "bar_chart_nv.json";
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#bar_chart_nv', vlSpec11).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec12 = "bar_chart_nv2.json";
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#bar_chart_nv2', vlSpec12).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+    </script>
+    
+  </body>
+</html>
