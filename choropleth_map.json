@@ -34,7 +34,7 @@
                     "lookup": "properties.NAME",
                     "from": {
                         "data": {
-                            "url": "Life Expectancy Data.csv"
+                            "url": "https://raw.githubusercontent.com/dmar0038/FIT3179-Asgmt2/main/Life%20Expectancy%20Data.csv"
                         },
                         "key": "Country",
                         "fields": [
