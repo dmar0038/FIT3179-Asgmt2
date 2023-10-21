@@ -3,7 +3,7 @@
     "title": "Scatter Plot: World Countries Average Body Mass Index (BMI)",
     "width": 800,
     "height": 400,
-    "data": {"url": "Life Expectancy Data.csv"},
+    "data": {"url": "https://raw.githubusercontent.com/dmar0038/FIT3179-Asgmt2/main/Life%20Expectancy%20Data.csv"},
     "params": [
         {
             "name": "selectedYear",
